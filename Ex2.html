@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cálculo de IMC</h1>
+    <input id="txtNome" placeholder="Digite seu nome" />
+    <input id="txtPeso" placeholder="Digite seu peso em Kg" />
+    <input id="txtAltura" placeholder="Digite sua altura em M" />
+
+    <button onclick="resultadoIMC()" >Calcular IMC</button>
+
+
+    <script>
+        function calcularIMC(peso,altura){
+            return peso / (altura**2)
+        }
+
+        function resultadoIMC(){
+            var pesoDigitadoKg = parseFloat(document.getElementById("txtPeso").value);
+            var alturaDigitadaMetros = parseFloat(document.getElementById("txtAltura").value);
+            var imc = calcularIMC(pesoDigitadoKg,alturaDigitadaMetros);
+            console.log(imc);
+        }
+
+        if (resultadoIMC <18.5){
+            alert("Você está abaixo do peso")
+        }
+
+        else if(resultadoIMC >= 18.5 && resultadoIMC<24.9){
+            alert("Você está com o peso normal")
+        }
+
+        else if(resultadoIMC>=25 && resultadoIMC<29.9) {
+            alert("Você está com sobrepeso")
+        }
+
+        else if(resultadoIMC>=30 && resultadoIMC<34.9) {
+            alert("Você está com obesidade grau I")
+        }
+
+        else if(resultadoIMC>=35 && resultadoIMC<39.9) {
+            alert("Você está com obesidade grau II (severa)")
+        }
+
+        else if (resultadoIMC>40){
+            alert("Você está com obesidade grau III (mórbida)")
+        }
+
+    </script>
+
+</body>
+</html>
